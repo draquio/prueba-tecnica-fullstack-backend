@@ -3,6 +3,7 @@ const bcrypr = require("bcryptjs");
 const jwt = require("../utils/jwt");
 
 function login(req, res) {
+  res.header('Access-Control-Allow-Origin', 'https://fullstack-frontend-nu.vercel.app/')
   const { email, password } = req.body;
   if (!email) res.status(400).send({ msg: "Email es obligatorio" });
   if (!password) res.status(400).send({ msg: "La contraseña es obligatoria" });
@@ -28,6 +29,7 @@ function login(req, res) {
 }
 
 function refreshAccessToken(req, res) {
+  res.header('Access-Control-Allow-Origin', 'https://fullstack-frontend-nu.vercel.app/')
   const { token } = req.body;
   if (!token) {
     res.status(400).send({ msg: "token requerido" });
