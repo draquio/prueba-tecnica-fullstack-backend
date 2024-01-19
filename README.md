@@ -13,6 +13,7 @@ Esta es una prueba técnica full stack (esta es la parte back) desarrollada por 
 - cors
 - jsonwebtoken
 - mongoose
+- express
 
 # Detalles
 
