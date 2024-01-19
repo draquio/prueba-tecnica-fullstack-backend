@@ -13,7 +13,8 @@ const categorieRoutes = require("./router/categorie");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(cors());
+const whitelist = ["https://fullstack-frontend-nu.vercel.app"];
+app.use(cors({origin:whitelist}));
 
 
 app.use(`/api/${API_Version}`, noteRoutes);
