@@ -2,7 +2,7 @@ const Note = require("../models/note");
 
 // Listar Notas
 async function getNotes(req, res) {
-  res.header('Access-Control-Allow-Origin', 'https://fullstack-frontend-nu.vercel.app/')
+  res.header('Access-Control-Allow-Origin', '*')
   const { active } = req.query;
   let response = null;
   if (!active) {
@@ -19,7 +19,7 @@ async function getNotes(req, res) {
 
 // Listar Notas
 async function getSingleNote(req, res) {
-  res.header('Access-Control-Allow-Origin', 'https://fullstack-frontend-nu.vercel.app/')
+  res.header('Access-Control-Allow-Origin', '*')
   const { id } = req.params;
   Note.findOne({ _id: id })
     .then((noteStored) => {
@@ -37,7 +37,7 @@ async function getSingleNote(req, res) {
 }
 
 async function getMyNotes(req, res) {
-  res.header('Access-Control-Allow-Origin', 'https://fullstack-frontend-nu.vercel.app/')
+  res.header('Access-Control-Allow-Origin', '*')
   const { active, user_id } = req.query;
   let response = await Note.find({active, user_id });
   if (!response) {
@@ -49,7 +49,7 @@ async function getMyNotes(req, res) {
 
 // Agregar nota
 async function createNote(req, res) {
-  res.header('Access-Control-Allow-Origin', 'https://fullstack-frontend-nu.vercel.app/')
+  res.header('Access-Control-Allow-Origin', '*')
   const note = new Note({
     ...req.body,
     create_at: new Date().toISOString(),
@@ -69,7 +69,7 @@ async function createNote(req, res) {
 
 // Actualizar notas
 async function updateNote(req, res) {
-  res.header('Access-Control-Allow-Origin', 'https://fullstack-frontend-nu.vercel.app/')
+  res.header('Access-Control-Allow-Origin', '*')
   const { id } = req.params;
   const noteData = req.body;
   Note.findByIdAndUpdate({ _id: id }, noteData)
@@ -85,7 +85,7 @@ async function updateNote(req, res) {
 
 // borrar nota
 async function deleteNote(req, res) {
-  res.header('Access-Control-Allow-Origin', 'https://fullstack-frontend-nu.vercel.app/')
+  res.header('Access-Control-Allow-Origin', '*')
   const { id } = req.params;
   Note.findByIdAndDelete({ _id: id })
     .then(() => {

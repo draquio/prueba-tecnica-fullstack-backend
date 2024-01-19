@@ -2,7 +2,7 @@ const bcrypt = require("bcryptjs");
 const User = require("../models/user");
 
 async function getMe(req, res) {
-  res.header('Access-Control-Allow-Origin', 'https://fullstack-frontend-nu.vercel.app/')
+  res.header('Access-Control-Allow-Origin', '*')
   const { user_id } = req.user;
   const response = await User.findById(user_id);
   if (!response) {

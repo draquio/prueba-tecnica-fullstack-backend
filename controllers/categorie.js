@@ -2,7 +2,7 @@ const Categorie = require("../models/categorie");
 
 // Agregar nota
 async function createCategorie(req, res) {
-  res.header('Access-Control-Allow-Origin', 'https://fullstack-frontend-nu.vercel.app/')
+  res.header('Access-Control-Allow-Origin', '*')
   const categorie = new Categorie({
     ...req.body,
     active: true,
@@ -20,7 +20,7 @@ async function createCategorie(req, res) {
 }
 // Listar Notas
 async function getCategories(req, res) {
-  res.header('Access-Control-Allow-Origin', 'https://fullstack-frontend-nu.vercel.app/')
+  res.header('Access-Control-Allow-Origin', '*')
   Categorie.find({ active: true })
   .then((categorieStored) => {
     res.status(200).send(categorieStored);
