@@ -13,11 +13,7 @@ const categorieRoutes = require("./router/categorie");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(cors({
-    origin:"*",
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}));
+app.use(cors());
 
 
 app.use(`/api/${API_Version}`, noteRoutes);
