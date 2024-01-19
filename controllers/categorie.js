@@ -2,7 +2,9 @@ const Categorie = require("../models/categorie");
 
 // Agregar nota
 async function createCategorie(req, res) {
-  res.header('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Credentials', true)
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
   const categorie = new Categorie({
     ...req.body,
     active: true,
@@ -20,7 +22,9 @@ async function createCategorie(req, res) {
 }
 // Listar Notas
 async function getCategories(req, res) {
-  res.header('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Credentials', true)
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
   Categorie.find({ active: true })
   .then((categorieStored) => {
     res.status(200).send(categorieStored);

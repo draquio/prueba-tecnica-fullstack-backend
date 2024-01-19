@@ -2,7 +2,9 @@ const bcrypt = require("bcryptjs");
 const User = require("../models/user");
 
 async function getMe(req, res) {
-  res.header('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Credentials', true)
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
   const { user_id } = req.user;
   const response = await User.findById(user_id);
   if (!response) {
