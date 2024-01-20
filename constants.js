@@ -1,6 +1,6 @@
 const DB_User = "admin";
 const DB_Password = "admin123";
-const DB_Host = "cluster0.aj5n6hk.mongodb.net";
+const DB_Host = "";
 const dbName = "prueba_fulltack"
 const API_Version = "v1";;
 const IP_Server = "localhost";
