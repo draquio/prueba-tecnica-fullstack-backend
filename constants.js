@@ -1,7 +1,8 @@
-const DB_User = "admin";
-const DB_Password = "admin123";
-const DB_Host = "cluster0.aj5n6hk.mongodb.net";
-const dbName = "prueba_fulltack"
+require('dotenv').config();
+const DB_User = process.env.DB_User;
+const DB_Password = process.env.DB_Password;
+const DB_Host = process.env.DB_Host;
+const dbName = process.env.dbName;
 const API_Version = "v1";;
 const IP_Server = "localhost";
 const JWT_SECRET_KEY = "asdPKASJMhsdJSJKAJSDSAWETAS";
